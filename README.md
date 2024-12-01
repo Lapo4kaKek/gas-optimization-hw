@@ -1,62 +1,66 @@
-# Gas optimization quizz
+## Foundry
 
-Homework for students on the topic of gas optimization.
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-Any tricks can be used in the solution, the main thing is to reduce the cost of gas contracting.
+Foundry consists of:
 
-Using ONLY the solidity optimizer is not a solution to the task!
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-The last task requires optimizing the performance of the entire contract.
+## Documentation
 
-**Tasks 1-9 are worth 1 point, task 10 is worth 5 points**
+https://book.getfoundry.sh/
 
-## Task
+## Usage
 
-Given contract `A`, we need to write a second contract named `AOptimized`.
+### Build
 
-Do not change the names of functions inside the contract!!!
-
-Example,
-
-```solidity
-// file A.sol
-
-contract A {
-    function call() public {
-        // Original function
-    }
-}
-
-contract AOptimized {
-    function call() public {
-        // Your optimization
-    }
-}
+```shell
+$ forge build
 ```
 
-Answers are checked manually and with the commands
+### Test
 
-```sh
-forge test --match-contract ArrayLength
-forge test --match-contract ArrayLength --gas-report
+```shell
+$ forge test
 ```
 
-Test the same way in different contracts
+### Format
 
-Example,
+```shell
+$ forge fmt
+```
 
-```solidity
-// file A.t.sol
+### Gas Snapshots
 
-contract ATest is Test{
-    function test_call() public {
-        // Original test
-    }
-}
+```shell
+$ forge snapshot
+```
 
-contract AOptimizedTest is Test {
-    function test_call() public {
-        // Your test
-    }
-}
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
 ```
