@@ -31,16 +31,38 @@ contract Loops is ILoops {
     }
 }
 
+
 contract LoopsOptimized is ILoops {
     function loopFor() public pure {
-        /* YOUR SOLUTION GOES HERE */
+        uint256 sum;
+        for (uint256 i = 0; i < 20;) {
+            unchecked {
+                sum += i;
+                i++;
+            }
+        }
     }
 
     function loopWhile() public pure {
-        /* YOUR SOLUTION GOES HERE */
+        uint256 sum;
+        uint256 i;
+        while (i < 10) {
+            unchecked {
+                sum += i;
+                i++;
+            }
+        }
     }
 
     function loopDoWhile() public pure {
-        /* YOUR SOLUTION GOES HERE */
+        uint256 sum;
+        uint256 i;
+
+        do {
+            unchecked {
+                sum += i;
+                i++;
+            }
+        } while (i < 10);
     }
 }

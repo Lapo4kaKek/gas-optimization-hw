@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-import "forge-std/Test.sol";
+import "../lib/forge-std/src/Test.sol";
 import "src/08. ArrayType.sol";
 
 // forge test --match-contract ArrayType
@@ -19,5 +19,13 @@ contract ArrayTypeTest is Test {
 }
 
 contract ArrayTypeOptimizedTest is Test {
-/* YOUR SOLUTION GOES HERE */
+    ArrayTypeOptimized array;
+
+    function setUp() public {
+        array = new ArrayTypeOptimized();
+    }
+
+    function test_init() public {
+        array.initArray();
+    }
 }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-import "forge-std/Test.sol";
+import "../lib/forge-std/src/Test.sol";
 import "src/06. Errors.sol";
 
 // forge test --match-contract Errors
@@ -22,5 +22,16 @@ contract ErrorsTest is Test {
 }
 
 contract ErrorsOptimizedTest is Test {
-/* YOUR SOLUTION GOES HERE */
+    ErrorsOptimized errors;
+
+    function setUp() public {
+        errors = new ErrorsOptimized();
+    }
+
+    function test_call() public {
+        vm.startPrank(address(0x01));
+        vm.expectRevert();
+        errors.call();
+        vm.stopPrank();
+    }
 }

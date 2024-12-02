@@ -17,6 +17,11 @@ contract ArrayLengthOptimized is IArrayLength {
     uint256[] public myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     function callFor() public view {
-        /* YOUR SOLUTION GOES HERE */
+        uint256 length = myArray.length;
+        unchecked {
+            for (uint256 i; i < myArray.length; i++) {
+            i++;
+        }   
+        }
     }
 }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-import "./forge-std/Test.sol";
+import "../lib/forge-std/src/Test.sol";
 import "src/01. ArithmeticOperators.sol";
 
 // forge test --match-contract ArithmeticOperators
@@ -35,5 +35,31 @@ contract ArithmeticOperatorsTest is Test {
 }
 
 contract ArithmeticOperatorsOptimizedTest is Test {
-/* YOUR SOLUTION GOES HERE */
+    AdditionOptimized additionOptimized;
+    SubtractionOptimized subtractionOptimized;
+    DivisionOptimized divisionOptimized;
+
+    function setUp() public {
+        additionOptimized = new AdditionOptimized();
+        subtractionOptimized = new SubtractionOptimized();
+        divisionOptimized = new DivisionOptimized();
+    }
+
+    function test_AdditionOptimized() public {
+    additionOptimized.addition(10);
+}
+
+function test_SubtractionOptimized() public {
+    subtractionOptimized.subtraction(10);
+}
+
+
+
+    function test_DivisionBy2Optimized() public {
+        uint256 result = divisionOptimized.divisionBy2(1024);
+    }
+
+    function test_DivisionBy128Optimized() public {
+        uint256 result = divisionOptimized.divisionBy128(1024);
+    }
 }

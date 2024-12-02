@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-import "forge-std/Test.sol";
+import "../lib/forge-std/src/Test.sol";
 import "src/07. Swap.sol";
 
 // forge test --match-contract Swap
@@ -21,5 +21,15 @@ contract SwapTest is Test {
 }
 
 contract SwapOptimizedTest is Test {
-/* YOUR SOLUTION GOES HERE */
+    SwapOptimized swap;
+
+    function setUp() public {
+        swap = new SwapOptimized();
+    }
+
+    function test_swap() public view {
+        (uint256 a, uint256 b) = swap.swap(300, 200);
+        assertEq(a, 200);
+        assertEq(b, 300);
+    }
 }
