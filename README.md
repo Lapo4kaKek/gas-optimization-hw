@@ -1,3 +1,8 @@
+1-9 ✅ (1 point * 9 maybe)
+
+10 ✅ (5 point maybe)
+
+
 ## 1. Arithmetic Operators
 
 AdditionOptimized
@@ -11,7 +16,6 @@ Division operations were replaced with bitwise shifts:
 divisionBy2 uses number >> 1 instead of number / 2.
 divisionBy128 uses number >> 7 instead of number / 128.
 Bitwise operations (>>) are significantly cheaper than arithmetic division.
-
 
 ![](/src/static/1.png)
 
